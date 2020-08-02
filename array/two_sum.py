@@ -25,3 +25,19 @@ def twoNumberSum(array, target):
 # print(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 15))
 # creates: {3: 12, 5: 10, -4: 19, 8: 7, 11: 4, 1: 14, -1: 16, 6: 9}
 # and returns [] because there are no matches
+
+### O(nlog(n)) time & O(1) space solution
+
+def twoSumBinSearch(array, target):
+	array.sort()
+	left = 0
+	right = len(array) - 1
+	while left < right:
+		cur = array[left] + array[right]
+		if cur == target:
+			return [array[left], array[right]]
+		elif cur < target:
+			left += 1
+		elif cur > target:
+			right -= 1
+	return []
