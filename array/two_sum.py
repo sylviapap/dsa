@@ -19,19 +19,19 @@ def twoNumberSum(array, target):
 	return []
 
 # print(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
-# this creates the hash: {3: 7, 5: 5, -4: 14, 8: 2, 11: -1, 1: 9}
-# and returns [11, -1]
+	# this creates the hash: {3: 7, 5: 5, -4: 14, 8: 2, 11: -1, 1: 9}
+	# and returns [11, -1]
 
 # print(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 15))
-# creates: {3: 12, 5: 10, -4: 19, 8: 7, 11: 4, 1: 14, -1: 16, 6: 9}
-# and returns [] because there are no matches
+	# creates: {3: 12, 5: 10, -4: 19, 8: 7, 11: 4, 1: 14, -1: 16, 6: 9}
+	# and returns [] because there are no matches
 
 ### O(nlog(n)) time & O(1) space solution
 
 def twoSumBinSearch(array, target):
 	array.sort()
 	left = 0
-	right = len(array) - 1
+	right = len(array) - 1 # important detail - if len is i.e. 9, we want array[8]
 	while left < right:
 		cur = array[left] + array[right]
 		if cur == target:
@@ -41,3 +41,7 @@ def twoSumBinSearch(array, target):
 		elif cur > target:
 			right -= 1
 	return []
+
+# seems like you could do `right = -1` and then `while left > right` to be shorter code,
+# but that didn't pass all test cases
+# maybe interesting, maybe insignificant, look into it later
