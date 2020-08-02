@@ -45,3 +45,15 @@ def twoSumBinSearch(array, target):
 # seems like you could do `right = -1` and then `while left > right` to be shorter code,
 # but that didn't pass all test cases
 # maybe interesting, maybe insignificant, look into it later
+
+### O(n^2) time & O(1) space
+# brute force / slowest but constant space
+
+def twoNumberSum1(array, targetSum):
+	for i in range(len(array) - 1): # important because you wouldn't have anything to compare the final index to
+		num = array[i]
+		for j in range(i+1, len(array)):
+			comparison_num = array[j]
+			if num + comparison_num == targetSum:
+				return [num, comparison_num]
+	return []
