@@ -2,7 +2,7 @@
 # 0, 1, 1, 2, 3, 5
 # f(n) = f(n-1) + f(n-2)
 
-# O(n^2) time, O(n) space
+# O(2^n) time, O(n) space
 def fib(n):
   if n <= 2:
     return n - 1
