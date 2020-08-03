@@ -8,3 +8,13 @@ def fib(n):
     return n - 1
   else: # when we get to this point, n must = 3, so fib(n-1)=fib(3-1)=fib(2)=2-1=1
     return fib(n-1) + fib(n-2) # and fib(n-2)=fib(1)=0, so fib(3) = 1
+
+# using memoization
+# O(n) time and space
+def getNthFib(n):
+  memo = {1: 0, 2:1}
+  if n in memo:
+		return memo[n]
+  else:
+		memo[n] = getNthFib(n-1) + getNthFib(n-2)
+		return memo[n]
