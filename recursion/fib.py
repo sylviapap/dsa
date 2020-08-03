@@ -11,10 +11,22 @@ def fib(n):
 
 # using memoization
 # O(n) time and space
-def getNthFib(n):
+def fib(n):
   memo = {1: 0, 2:1}
   if n in memo:
 		return memo[n]
   else:
-		memo[n] = getNthFib(n-1) + getNthFib(n-2)
+		memo[n] = fib(n-1) + fib(n-2)
 		return memo[n]
+
+# iterative
+# O(n) time, but O(1) space
+def fib(n):
+  base = [0,1]
+  counter = 3
+  while counter <= n:
+		nextFib = base[0] + base[1]
+		base[0] = base[1]
+		base[1] = nextFib
+		counter += 1
+  return base[1] if n>1 else base[0]
