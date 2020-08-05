@@ -1,7 +1,13 @@
 # Construct doubly linked list
 # Methods: set head/tail, insert/remove nodes, search for node with given value
+# Complexity:
+  # O(1) time, O(1) space: set head/tail, insert before/after, remove
+  # O(p) time, O(1) space: insert at pos where p = pos
+  # O(n) time, O(1) space: remove with value, search
+    # because traversing the list, others take node as param
 
 class Node:
+# value is int
   def __init__(self, value):
     self.value = value
     self.prev = None
@@ -49,6 +55,7 @@ class DoublyLinkedList:
       node.next.prev = nodeToInsert
     node.next = nodeToInsert
 
+# pos is int
   def insertAtPosition(self, position, nodeToInsert):
     if position == 1:
       self.setHead(nodeToInsert)
@@ -63,6 +70,7 @@ class DoublyLinkedList:
     else:
       self.setTail(nodeToInsert)
 
+# value is int
   def removeNodesWithValue(self, value):
     node = self.head
     while node is not None:
@@ -78,6 +86,7 @@ class DoublyLinkedList:
       self.tail = self.tail.prev
     self.updatePointers(node)
 
+# value is int, return bool
   def containsNodeWithValue(self, value):
     node = self.head
     while node is not None and node.value != value:
