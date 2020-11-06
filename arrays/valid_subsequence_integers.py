@@ -8,7 +8,6 @@
 
 # O(n) time, O(1) space
 # n is length of array
-# doesn't seem to be any more optimal
 
 def isValidSubsequence1(array, sequence):
   position = 0
@@ -18,7 +17,7 @@ def isValidSubsequence1(array, sequence):
 			position += 1
   return position == len(sequence)
 
-# maybe slightly cleaner code, using `break` out of loop
+# Maybe slightly cleaner code, using `break` out of loop
 
 def isValidSubsequence(array, sequence):
   position = 0
@@ -29,7 +28,7 @@ def isValidSubsequence(array, sequence):
       position += 1
   return position == len(sequence)
 
-# third option, almost exact same, but using `while` instead of `for` loop
+# Using `while` instead of `for` loop
 
 def isValidSubsequence(array, sequence):
   arrayPosition, sequencePosition = 0 , 0
