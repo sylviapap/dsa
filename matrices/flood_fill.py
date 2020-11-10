@@ -11,7 +11,7 @@ image = [
   ]
 sr = 1, sc = 1, newColor = 2
 
-Output: 
+Output:
 image = [
   [2,2,2],
   [2,2,0],
@@ -19,35 +19,31 @@ image = [
   ]
 '''
 
+
 def floodFill(image, sr, sc, newColor):
-  oldColor = image[sr][sc]
-  if oldColor == newColor:
-      return image
+    oldColor = image[sr][sc]
+    if oldColor == newColor:
+        return image
 
-  def changeColor(r, c):
-      image[r][c] = newColor
-      checkNeighbors(r, c)
+    def changeColor(r, c):
+        image[r][c] = newColor
+        checkNeighbors(r, c)
 
-  def checkNeighbors(r, c):
-      if r > 0 and image[r-1][c] == oldColor:
-          changeColor(r-1, c)
+    def checkNeighbors(r, c):
+        if r > 0 and image[r-1][c] == oldColor:
+            changeColor(r-1, c)
 
-      if r < len(image)-1 and image[r+1][c] == oldColor:
-          changeColor(r+1, c)
+        if r < len(image)-1 and image[r+1][c] == oldColor:
+            changeColor(r+1, c)
 
-      if c < len(image[0])-1 and image[r][c+1] == oldColor:
-          changeColor(r, c+1)
+        if c < len(image[0])-1 and image[r][c+1] == oldColor:
+            changeColor(r, c+1)
 
-      if c > 0 and image[r][c-1] == oldColor:
-          changeColor(r, c-1)
+        if c > 0 and image[r][c-1] == oldColor:
+            changeColor(r, c-1)
+    
+	changeColor(sr, sc)
+    return image
 
-  changeColor(sr, sc)
-  return image
-
-print(floodFill([
-  [1,1,1],
-  [1,1,0],
-  [1,0,1]
-  ], 1, 1, 2))
-
+print(floodFill([[1, 1, 1],[1, 1, 0],[1, 0, 1]], 1, 1, 2))
 # => [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
